@@ -14,13 +14,18 @@ public class CustomReceiver extends BroadcastReceiver {
         String intentAction = intent.getAction();
 
         if (intentAction != null) {
-            String toastMessage = "unknown intent action";
+            String toastMessage = context.getString(R.string.unknown_action);
             switch (intentAction){
                 case Intent.ACTION_POWER_CONNECTED:
-                    toastMessage = "Power connected!";
+                    toastMessage = context.getString(R.string.power_connected);
                     break;
                 case Intent.ACTION_POWER_DISCONNECTED:
-                    toastMessage = "Power disconnected!";
+                    toastMessage =
+                            context.getString(R.string.power_disconnected);
+                    break;
+                case ACTION_CUSTOM_BROADCAST:
+                    toastMessage =
+                            context.getString(R.string.custom_broadcast_toast);
                     break;
             }
 
